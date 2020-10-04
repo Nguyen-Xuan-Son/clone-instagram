@@ -29,18 +29,25 @@ const useStyle = makeStyles(theme => ({
     }
   },
   inputContainer: {
-    minWidth: 125,
     width: 215,
     height: 28,
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
+    position: 'relative',
+    background: '#fafafa',
     '& input': {
+      border: 'solid 1px #dbdbdb',
+      borderRadius: 3,
       width: 'inherit',
       height: 'inherit',
-      borderRadius: 3,
-      padding: 0,
-      border: 'solid 1px rgba(var(--b6a,219,219,219),1)',
+      padding: '0px 10px 0px 26px',
+      zIndex: 2,
+      fontSize: 14,
+      display: 'none'
+    },
+    '& input:focus': {
+      zIndex: 3,
     }
   },
   actionsContainer: {
@@ -64,7 +71,27 @@ const useStyle = makeStyles(theme => ({
     height: 24,
     width: 24,
     cursor: 'pointer',
-  }
+  },
+  inputContainerPlaceholder: {
+    position: 'absolute',
+    height: 'inherit',
+    border: 'solid 1px #dbdbdb',
+    borderRadius: 3,
+    background: '#fafafa',
+    top: 0,
+    left: 0,
+    width: 'inherit',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#8e8e8e',
+    fontSize: 14,
+    fontWeight: 300,
+    zIndex: 2,
+    '& div': {
+      marginRight: 5,
+    }
+  },
 }));
 
 export const NavbarHomeComponent = () => {
@@ -83,6 +110,15 @@ export const NavbarHomeComponent = () => {
             <input
               placeholder="Search"
             />
+
+            <div className={classes.inputContainerPlaceholder}>
+              <IconComponent
+                coordinatesX={207}
+                coordinatesY={162}
+                size={10}
+              />
+              <span>Search</span>
+            </div>
           </div>
 
           <div className={classes.actionsContainer}>
